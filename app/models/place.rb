@@ -1,5 +1,9 @@
 class Place < ActiveRecord::Base
 
+	has_many :places_tags
+	has_many :tags, through: :places_tags
+
+
 	acts_as_mappable :default_units => :miles,
                    :default_formula => :sphere,
                    :distance_field_name => :distance,
