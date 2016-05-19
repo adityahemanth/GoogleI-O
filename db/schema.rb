@@ -23,9 +23,14 @@ ActiveRecord::Schema.define(version: 20160519201440) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "comments", ["photo_id"], name: "index_comments_on_photo_id"
 
   create_table "communities", force: :cascade do |t|
     t.string   "title"
@@ -44,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160519201440) do
   end
 
   create_table "photo_likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,11 +62,6 @@ ActiveRecord::Schema.define(version: 20160519201440) do
     t.text     "description", default: ""
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-  end
-
-  create_table "place_ratings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "places", force: :cascade do |t|
@@ -78,11 +80,15 @@ ActiveRecord::Schema.define(version: 20160519201440) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "community_id"
     t.string   "title"
     t.text     "post"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "posts", ["community_id"], name: "index_posts_on_community_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "rates", force: :cascade do |t|
     t.integer  "rater_id"
