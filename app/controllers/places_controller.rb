@@ -26,11 +26,10 @@ class PlacesController < ApplicationController
 
 	def getPhotos
 		@photos = Photo.where(:place_id => params[:id])
-		render :json => @photos
+		render :json => photos
 	end
 
 	def create
-		
 	end
 
 
