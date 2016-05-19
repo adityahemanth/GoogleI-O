@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160519201440) do
   create_table "photos", force: :cascade do |t|
     t.string   "url"
     t.integer  "user_id"
+    t.integer  "place_id"
     t.string   "title",       default: ""
     t.text     "description", default: ""
     t.datetime "created_at",               null: false
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 20160519201440) do
   create_table "places", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
+    t.integer  "lat"
+    t.integer  "lng"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

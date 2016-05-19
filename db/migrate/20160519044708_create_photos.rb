@@ -4,6 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
 
     	t.string :url
     	t.references :user
+    	t.references :place
 
     	t.string :title, default: ""
     	t.text   :description, default: ""
