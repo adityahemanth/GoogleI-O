@@ -60,7 +60,7 @@ function performGet() {
     //   $("#radius").val(rad);
     // }
 
-    $.get( "http://localhost:8080/places/show_json",
+    $.get( "http://localhost:8080/places/show_json", { lat : pos.lat, lng : pos.lng}
      function( data ) {
            var count = data.length - 1; 
 
@@ -82,6 +82,7 @@ function performGet() {
              }
 
              map.fitBounds(bounds);
+    }
 
     });
   }

@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
 	layout 'photo'
 
 	def new
+		@user = current_user
 		@photo = Photo.new
 	end
 

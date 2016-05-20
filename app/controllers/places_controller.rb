@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
 
 	def show_json
 		
-		@places = Place.all
+		@places = Place.within(100, :origin => [params[:lat], params[:lng]])
 		render :json => @places
 	end
 
