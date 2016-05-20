@@ -1,15 +1,19 @@
 class PlacesController < ApplicationController
 
-	
+	layout "place"
+
 	def show
 		@place = Place.where(:id => params[:id])
-		render :json => @place
 	end
 
 	def index
-		#@user = current_user
+		if current_user
+			@user = current_user
+		else
+			@user = nil
+		end
+
 		@places = Place.all
-		render :json => @places
 	end
 
 	def within
@@ -26,10 +30,11 @@ class PlacesController < ApplicationController
 
 	def getPhotos
 		@photos = Photo.where(:place_id => params[:id])
-		render :json => photos
+		render :json => @photos
 	end
 
 	def create
+
 	end
 
 

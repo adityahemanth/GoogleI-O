@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 #devise
 gem 'devise'
+gem 'materialize-sass'
 gem 'geokit'
 gem 'geokit-rails'
 gem 'ratyrate'

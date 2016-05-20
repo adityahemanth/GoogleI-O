@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "places#index"
+
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   match ':controller(/:action(/:id))', :via => :get

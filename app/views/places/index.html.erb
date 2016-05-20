@@ -1,0 +1,54 @@
+
+ <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#test1"> Card View </a></li>
+        <li class="tab col s3"><a href="#test2"> Map View </a></li>
+      </ul>
+ </div>
+
+    <div id="test1" class="col s12">
+
+		<div class ="container">
+
+		<% @places.each do |p| %>
+			<div class="card" style="padding:10px;">
+
+				<div class="row valign-wrapper">
+		            <div class="col s2">
+		              <img src="http://www.psdgraphics.com/wp-content/uploads/2015/06/ecology-nature.jpg" alt="" style="height:40px;width:40px;" class="circle responsive-img"> <!-- notice the "circle" class -->
+		            </div>
+		            <div class="col s10 valign">
+		              <h5 style="color:#00897b">
+		                <%= p.title %>
+		              </h5>
+		            </div>
+		          </div>
+
+				<p> <%= p.description %> </p>
+			</div>
+		<% end %>
+
+		</div> 
+
+  </div>
+    <div id="test2" class="col s12">
+    	<div class="container">
+    		<div class="row">
+    	 		<div id="map" class="s12" style="height:500px;"></div>
+    	 	</div>
+    	</div>
+    </div>
+  </div>
+        
+
+
+
+
+
+
+
+
+
+
+
