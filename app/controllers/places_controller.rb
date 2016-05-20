@@ -3,7 +3,13 @@ class PlacesController < ApplicationController
 	layout "place"
 
 	def show
-		@place = Place.where(:id => params[:id])
+		@place = Place.find(params[:id])
+	end
+
+	def show_json
+		
+		@places = Place.all
+		render :json => @places
 	end
 
 	def index
@@ -17,14 +23,13 @@ class PlacesController < ApplicationController
 	end
 
 	def within
-		latlng = [ params[:lat], params[:lng] ]
+		latlng = [params[:lat], params[:lng]]
 		radius = params[:radius]
 
 		if radius == 0
-			radius = 5
+			radius = 100
 		end
 		@places = Place.within(radius,  :origin => latlng)
-		render :json => @places
 
 	end
 
@@ -34,7 +39,7 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-
+		@place = Place.create(place_params)
 	end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519201440) do
+ActiveRecord::Schema.define(version: 20160520084505) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 20160519201440) do
     t.datetime "updated_at"
   end
 
+  create_table "paperclip_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photo_likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "photo_id"
@@ -56,20 +61,23 @@ ActiveRecord::Schema.define(version: 20160519201440) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "url"
     t.integer  "user_id"
     t.integer  "place_id"
-    t.string   "title",       default: ""
-    t.text     "description", default: ""
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",              default: ""
+    t.text     "description",        default: ""
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "places", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "lat"
-    t.integer  "lng"
+    t.decimal  "lat"
+    t.decimal  "lng"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -6,6 +6,7 @@ gem 'materialize-sass'
 gem 'geokit'
 gem 'geokit-rails'
 gem 'ratyrate'
+gem 'paperclip'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

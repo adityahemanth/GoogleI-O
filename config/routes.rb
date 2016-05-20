@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
+
   match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => :post
 
 
   # The priority is based upon order of creation: first created -> highest priority.
